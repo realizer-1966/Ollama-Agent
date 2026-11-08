@@ -1,0 +1,2526 @@
+{
+ "version": 1,
+ "recordedAt": "2026-11-05T06:58:07.966Z",
+ "seedNotes": [
+  "내 북클럽 모임은 목요일 저녁 7시야",
+  "치과 예약은 10월 3일 오전 9시",
+  "별장 와이파이 비밀번호는 냉장고에 붙어 있어",
+  "사라 생일은 6월 12일",
+  "헬스장 사물함 번호는 4417",
+  "세차 쿠폰은 이번 달 말에 만료돼",
+  "회사 주차 자리는 B-14"
+ ],
+ "note": "한국어 합성 과제. 도구 출력은 scripts/build_tasks_ko.mjs가 실제 도구로 녹음했다. 정답 인자가 배열이면 그중 하나면 맞는다.",
+ "tasks": [
+  {
+   "id": "k001",
+   "split": "dev",
+   "category": "weather",
+   "goal": "리스본 내일 날씨 알려줘",
+   "steps": [
+    {
+     "action": "weather",
+     "args": {
+      "place": "리스본",
+      "when": "tomorrow"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": "리스본",
+        "when": "tomorrow"
+       }
+      }
+     ],
+     "observation": "리스본, 리스보아현, 포르투갈 내일 예보: 11-06(금): 소나기, 13~20°C, 강수 확률 55%",
+     "answer": "리스본, 리스보아현, 포르투갈 내일 예보: 11-06(금): 소나기, 13~20°C, 강수 확률 55%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "리스본, 리스보아현, 포르투갈 내일 예보: 11-06(금): 소나기, 13~20°C, 강수 확률 55%"
+  },
+  {
+   "id": "k002",
+   "split": "test",
+   "category": "weather",
+   "goal": "오사카 이번 주말 날씨는?",
+   "steps": [
+    {
+     "action": "weather",
+     "args": {
+      "place": "오사카",
+      "when": "weekend"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": "오사카",
+        "when": "weekend"
+       }
+      }
+     ],
+     "observation": "오사카 시, 오사카 부, 일본 이번 주말(토·일) 예보: 11-07(토): 대체로 맑음, 11~17°C, 강수 확률 0%; 11-08(일): 흐림, 9~16°C, 강수 확률 0%",
+     "answer": "오사카 시, 오사카 부, 일본 이번 주말(토·일) 예보: 11-07(토): 대체로 맑음, 11~17°C, 강수 확률 0%; 11-08(일): 흐림, 9~16°C, 강수 확률 0%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "오사카 시, 오사카 부, 일본 이번 주말(토·일) 예보: 11-07(토): 대체로 맑음, 11~17°C, 강수 확률 0%; 11-08(일): 흐림, 9~16°C, 강수 확률 0%"
+  },
+  {
+   "id": "k003",
+   "split": "test",
+   "category": "weather",
+   "goal": "제주 날씨 알려줘",
+   "steps": [
+    {
+     "action": "weather",
+     "args": {
+      "place": [
+       "제주",
+       "제주도"
+      ],
+      "when": "today"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": [
+         "제주",
+         "제주도"
+        ],
+        "when": "today"
+       }
+      }
+     ],
+     "observation": "제주시, 제주특별자치도, 대한민국 오늘 예보: 11-05(목): 비, 16~21°C, 강수 확률 100%",
+     "answer": "제주시, 제주특별자치도, 대한민국 오늘 예보: 11-05(목): 비, 16~21°C, 강수 확률 100%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "제주시, 제주특별자치도, 대한민국 오늘 예보: 11-05(목): 비, 16~21°C, 강수 확률 100%"
+  },
+  {
+   "id": "k004",
+   "split": "dev",
+   "category": "weather",
+   "goal": "런던 오늘 날씨 어때?",
+   "steps": [
+    {
+     "action": "weather",
+     "args": {
+      "place": "런던",
+      "when": "today"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": "런던",
+        "when": "today"
+       }
+      }
+     ],
+     "observation": "런던, 잉글랜드, 영국 오늘 예보: 11-05(목): 흐림, 9~10°C, 강수 확률 37%",
+     "answer": "런던, 잉글랜드, 영국 오늘 예보: 11-05(목): 흐림, 9~10°C, 강수 확률 37%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "런던, 잉글랜드, 영국 오늘 예보: 11-05(목): 흐림, 9~10°C, 강수 확률 37%"
+  },
+  {
+   "id": "k005",
+   "split": "test",
+   "category": "weather",
+   "goal": "시드니 앞으로 며칠 날씨 알려줘",
+   "steps": [
+    {
+     "action": "weather",
+     "args": {
+      "place": "시드니",
+      "when": "week"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": "시드니",
+        "when": "week"
+       }
+      }
+     ],
+     "observation": "시드니, 뉴사우스웨일스주, 오스트레일리아 앞으로 며칠 예보: 11-05(목): 약한 이슬비, 16~21°C, 강수 확률 84%; 11-06(금): 흐림, 14~21°C, 강수 확률 6%; 11-07(토): 뇌우, 13~29°C, 강수 확률 96%",
+     "answer": "시드니, 뉴사우스웨일스주, 오스트레일리아 앞으로 며칠 예보: 11-05(목): 약한 이슬비, 16~21°C, 강수 확률 84%; 11-06(금): 흐림, 14~21°C, 강수 확률 6%; 11-07(토): 뇌우, 13~29°C, 강수 확률 96%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "시드니, 뉴사우스웨일스주, 오스트레일리아 앞으로 며칠 예보: 11-05(목): 약한 이슬비, 16~21°C, 강수 확률 84%; 11-06(금): 흐림, 14~21°C, 강수 확률 6%; 11-07(토): 뇌우, 13~29°C, 강수 확률 96%"
+  },
+  {
+   "id": "k006",
+   "split": "test",
+   "category": "weather",
+   "goal": "뉴욕 내일 날씨는?",
+   "steps": [
+    {
+     "action": "weather",
+     "args": {
+      "place": "뉴욕",
+      "when": "tomorrow"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": "뉴욕",
+        "when": "tomorrow"
+       }
+      }
+     ],
+     "observation": "뉴욕, 뉴욕주, 미국 내일 예보: 11-06(금): 비, 14~18°C, 강수 확률 74%",
+     "answer": "뉴욕, 뉴욕주, 미국 내일 예보: 11-06(금): 비, 14~18°C, 강수 확률 74%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "뉴욕, 뉴욕주, 미국 내일 예보: 11-06(금): 비, 14~18°C, 강수 확률 74%"
+  },
+  {
+   "id": "k007",
+   "split": "dev",
+   "category": "weather",
+   "goal": "파리 이번 주말 날씨 알려줘",
+   "steps": [
+    {
+     "action": "weather",
+     "args": {
+      "place": "파리",
+      "when": "weekend"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": "파리",
+        "when": "weekend"
+       }
+      }
+     ],
+     "observation": "파리, 일드프랑스, 프랑스 이번 주말(토·일) 예보: 11-07(토): 안개, 4~10°C, 강수 확률 0%; 11-08(일): 안개, 6~8°C, 강수 확률 2%",
+     "answer": "파리, 일드프랑스, 프랑스 이번 주말(토·일) 예보: 11-07(토): 안개, 4~10°C, 강수 확률 0%; 11-08(일): 안개, 6~8°C, 강수 확률 2%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "파리, 일드프랑스, 프랑스 이번 주말(토·일) 예보: 11-07(토): 안개, 4~10°C, 강수 확률 0%; 11-08(일): 안개, 6~8°C, 강수 확률 2%"
+  },
+  {
+   "id": "k008",
+   "split": "test",
+   "category": "weather",
+   "goal": "베를린 오늘 날씨는?",
+   "steps": [
+    {
+     "action": "weather",
+     "args": {
+      "place": "베를린",
+      "when": "today"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": "베를린",
+        "when": "today"
+       }
+      }
+     ],
+     "observation": "베를린, 독일 오늘 예보: 11-05(목): 대체로 맑음, 4~10°C, 강수 확률 0%",
+     "answer": "베를린, 독일 오늘 예보: 11-05(목): 대체로 맑음, 4~10°C, 강수 확률 0%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "베를린, 독일 오늘 예보: 11-05(목): 대체로 맑음, 4~10°C, 강수 확률 0%"
+  },
+  {
+   "id": "k009",
+   "split": "dev",
+   "category": "wiki",
+   "goal": "마리 퀴리에 대해 알려줘",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "마리 퀴리"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "마리 퀴리"
+       }
+      }
+     ],
+     "observation": "마리 퀴리 (폴란드 태생 프랑스의 화학자 (1867~1934)): 마리아 스크워도프스카 퀴리(프랑스어: Maria Skłodowska-Curie, 문화어: 마리 큐리, 1867년 11월 7일 ~ 1934년 7월 4일)는 폴란드 출신의 프랑스 과학자이다. 본명은 마리아 살로메아 스크워도프스카(폴란드어: Maria Salomea Skłodowska)이다.",
+     "answer": "마리 퀴리: 마리아 스크워도프스카 퀴리(프랑스어: Maria Skłodowska-Curie, 문화어: 마리 큐리, 1867년 11월 7일 ~ 1934년 7월 4일)는 폴란드 출신의 프랑스 과학자이다. 본명은 마리아 살로메아 스크워도프스카(폴란드어: Maria Salomea Skłodowska)이다.",
+     "source": "https://ko.wikipedia.org/wiki/%EB%A7%88%EB%A6%AC_%ED%80%B4%EB%A6%AC"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "마리 퀴리: 마리아 스크워도프스카 퀴리(프랑스어: Maria Skłodowska-Curie, 문화어: 마리 큐리, 1867년 11월 7일 ~ 1934년 7월 4일)는 폴란드 출신의 프랑스 과학자이다. 본명은 마리아 살로메아 스크워도프스카(폴란드어: Maria Salomea Skłodowska)이다."
+  },
+  {
+   "id": "k010",
+   "split": "test",
+   "category": "wiki",
+   "goal": "에펠탑이 뭐야?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "에펠탑"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "에펠탑"
+       }
+      }
+     ],
+     "observation": "에펠탑 (프랑스 파리 마르스 광장의 건축물): 에펠탑(프랑스어: Tour Eiffel 투르 에펠[*], 프랑스어 발음: ​[tuʁ ɛfɛl])은 프랑스 파리 마르스 광장에 위치한 격자형 철골 타워이다.",
+     "answer": "에펠탑: 에펠탑(프랑스어: Tour Eiffel 투르 에펠[*], 프랑스어 발음: ​[tuʁ ɛfɛl])은 프랑스 파리 마르스 광장에 위치한 격자형 철골 타워이다.",
+     "source": "https://ko.wikipedia.org/wiki/%EC%97%90%ED%8E%A0%ED%83%91"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "에펠탑: 에펠탑(프랑스어: Tour Eiffel 투르 에펠[*], 프랑스어 발음: ​[tuʁ ɛfɛl])은 프랑스 파리 마르스 광장에 위치한 격자형 철골 타워이다."
+  },
+  {
+   "id": "k011",
+   "split": "test",
+   "category": "wiki",
+   "goal": "교토에 대해 알려줘",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "교토"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "교토"
+       }
+      }
+     ],
+     "observation": "교토: 교토(일본어: 京都, 한국 한자음: 경도)는 일본의 역사적인 도시다. 미야코(일본어: 都), 교(일본어: 京)라고도 불렸다. 794년 일본의 수도로 세운 헤이안쿄(平安京)에 해당하며 오랫동안 일본의 정치와 문화의 중심지였다.",
+     "answer": "교토: 교토(일본어: 京都, 한국 한자음: 경도)는 일본의 역사적인 도시다. 미야코(일본어: 都), 교(일본어: 京)라고도 불렸다. 794년 일본의 수도로 세운 헤이안쿄(平安京)에 해당하며 오랫동안 일본의 정치와 문화의 중심지였다.",
+     "source": "https://ko.wikipedia.org/wiki/%EA%B5%90%ED%86%A0"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "교토: 교토(일본어: 京都, 한국 한자음: 경도)는 일본의 역사적인 도시다. 미야코(일본어: 都), 교(일본어: 京)라고도 불렸다. 794년 일본의 수도로 세운 헤이안쿄(平安京)에 해당하며 오랫동안 일본의 정치와 문화의 중심지였다."
+  },
+  {
+   "id": "k012",
+   "split": "dev",
+   "category": "wiki",
+   "goal": "한강에 대해 알려줘",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "한강"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "한강"
+       }
+      }
+     ],
+     "observation": "한강 (대한민국 수도권ㆍ강원도의 강): 한강(漢江, 영어: Hangang 또는 Hangang River)은 대한민국 강원특별자치도 태백시에서 시작하여 한반도 중부를 동에서 서로 통과하며 서울특별시를 거쳐 황해로 유입되는 한국의 주요 하천이다. 태백산맥의 금대봉 정상부 북쪽 비탈에서 발원하여 강화해협 부근의 어귀로 흘러가는 물줄기를 본류로 한다. 대한민국의 관찬 자료집인 《한국하천일람》 2013년 판에 따르면 본류 총연장은 494km 남짓이다.",
+     "answer": "한강: 한강(漢江, 영어: Hangang 또는 Hangang River)은 대한민국 강원특별자치도 태백시에서 시작하여 한반도 중부를 동에서 서로 통과하며 서울특별시를 거쳐 황해로 유입되는 한국의 주요 하천이다. 태백산맥의 금대봉 정상부 북쪽 비탈에서 발원하여 강화해협 부근의 어귀로 흘러가는 물줄기를 본류로 한다.",
+     "source": "https://ko.wikipedia.org/wiki/%ED%95%9C%EA%B0%95"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "한강: 한강(漢江, 영어: Hangang 또는 Hangang River)은 대한민국 강원특별자치도 태백시에서 시작하여 한반도 중부를 동에서 서로 통과하며 서울특별시를 거쳐 황해로 유입되는 한국의 주요 하천이다. 태백산맥의 금대봉 정상부 북쪽 비탈에서 발원하여 강화해협 부근의 어귀로 흘러가는 물줄기를 본류로 한다."
+  },
+  {
+   "id": "k013",
+   "split": "test",
+   "category": "wiki",
+   "goal": "블랙홀이 뭐야?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "블랙홀"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "블랙홀"
+       }
+      }
+     ],
+     "observation": "블랙홀 (항성이 최종 단계에서 폭발하여 만들어진 빠져나올 수 없는 시공간): 블랙홀(영어: black hole)은 중성자별이 되지 못한 항성이 진화의 최종 단계에서 폭발 후 수축되어 생성된 것으로 추측되는, 강력한 밀도와 중력으로 전자기 복사, 빛을 포함한 그 무엇도 빠져나올 수 없는 시공간 영역이다. 일반 상대성이론은 충분히 밀집된 질량이 시공을 뒤틀어 블랙홀을 형성할 수 있음을 예측한다. 블랙홀로부터의 탈출이 불가능해지는 경계를 사건의 지평선(event horizon)이라고 한다.",
+     "answer": "블랙홀: 블랙홀(영어: black hole)은 중성자별이 되지 못한 항성이 진화의 최종 단계에서 폭발 후 수축되어 생성된 것으로 추측되는, 강력한 밀도와 중력으로 전자기 복사, 빛을 포함한 그 무엇도 빠져나올 수 없는 시공간 영역이다. 일반 상대성이론은 충분히 밀집된 질량이 시공을 뒤틀어 블랙홀을 형성할 수 있음을 예측한다.",
+     "source": "https://ko.wikipedia.org/wiki/%EB%B8%94%EB%9E%99%ED%99%80"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "블랙홀: 블랙홀(영어: black hole)은 중성자별이 되지 못한 항성이 진화의 최종 단계에서 폭발 후 수축되어 생성된 것으로 추측되는, 강력한 밀도와 중력으로 전자기 복사, 빛을 포함한 그 무엇도 빠져나올 수 없는 시공간 영역이다. 일반 상대성이론은 충분히 밀집된 질량이 시공을 뒤틀어 블랙홀을 형성할 수 있음을 예측한다."
+  },
+  {
+   "id": "k014",
+   "split": "test",
+   "category": "wiki",
+   "goal": "만리장성에 대해 알려줘",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "만리장성"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "만리장성"
+       }
+      }
+     ],
+     "observation": "만리장성 (중국의 고대 진나라 때 기존의 성곽을 잇고 부족한 부분은 새롭게 축조하여 만든 거대한 성곽): 만리장성(중국어 정체자: 萬里長城, 간체자: 万里长城, 병음: Wànlĭ Chángchéng 완리창청[*])은 흉노족 등의 유목 민족의 침입을 막기 위해 중국의 고대 진나라(시황제) 때 기존의 성곽을 잇고 부족한 부분은 새롭게 축조하여 만든 거대한 성곽이다. 이후 명나라 시대에 이르기까지 중국의 역대 왕조에서 다양한 목적을 가지고 방벽을 지속적으로 보수하고 개축 및 신축하여 현재까지 남아 있으며 중국을 상징하는 대표적인 유적이자 건축물로 널리 알려져 있다. 1987년에 유네스코의 세계문화유산에 등재되었다.",
+     "answer": "만리장성: 만리장성(중국어 정체자: 萬里長城, 간체자: 万里长城, 병음: Wànlĭ Chángchéng 완리창청[*])은 흉노족 등의 유목 민족의 침입을 막기 위해 중국의 고대 진나라(시황제) 때 기존의 성곽을 잇고 부족한 부분은 새롭게 축조하여 만든 거대한 성곽이다. 이후 명나라 시대에 이르기까지 중국의 역대 왕조에서 다양한 목적을 가지고 방벽을 지속적으로 보수하고 개축 및 신축하여 현재까지 남아 있으며 중국을 상징하는 대표적인 유적이자 건축물로 널리 알려져 있다. 1987년에 유네스코의 세계문화유산에 등재되었다.",
+     "source": "https://ko.wikipedia.org/wiki/%EB%A7%8C%EB%A6%AC%EC%9E%A5%EC%84%B1"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "만리장성: 만리장성(중국어 정체자: 萬里長城, 간체자: 万里长城, 병음: Wànlĭ Chángchéng 완리창청[*])은 흉노족 등의 유목 민족의 침입을 막기 위해 중국의 고대 진나라(시황제) 때 기존의 성곽을 잇고 부족한 부분은 새롭게 축조하여 만든 거대한 성곽이다. 이후 명나라 시대에 이르기까지 중국의 역대 왕조에서 다양한 목적을 가지고 방벽을 지속적으로 보수하고 개축 및 신축하여 현재까지 남아 있으며 중국을 상징하는 대표적인 유적이자 건축물로 널리 알려져 있다. 1987년에 유네스코의 세계문화유산에 등재되었다."
+  },
+  {
+   "id": "k015",
+   "split": "dev",
+   "category": "wiki",
+   "goal": "이순신 장군이 누구야?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "이순신"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "이순신"
+       }
+      }
+     ],
+     "observation": "이순신 (조선의 무관 (1545–1598)): 이순신(李舜臣, 1545년 4월 28일 ~1598년 12월 16일 은 조선 중기 한국의 무신이다. 본관은 덕수, 자는 여해, 시호는 충무 이며 한성 출신이다.",
+     "answer": "이순신: 이순신(李舜臣, 1545년 4월 28일 ~1598년 12월 16일 은 조선 중기 한국의 무신이다. 본관은 덕수, 자는 여해, 시호는 충무 이며 한성 출신이다.",
+     "source": "https://ko.wikipedia.org/wiki/%EC%9D%B4%EC%88%9C%EC%8B%A0"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "이순신: 이순신(李舜臣, 1545년 4월 28일 ~1598년 12월 16일 은 조선 중기 한국의 무신이다. 본관은 덕수, 자는 여해, 시호는 충무 이며 한성 출신이다."
+  },
+  {
+   "id": "k016",
+   "split": "dev",
+   "category": "fact",
+   "goal": "캐나다의 인구는?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": "캐나다",
+      "property": "population"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": "캐나다",
+        "property": "population"
+       }
+      }
+     ],
+     "observation": "캐나다의 인구: 36,991,981 (Wikidata)",
+     "answer": "캐나다의 인구: 36,991,981 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q16"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "캐나다의 인구: 36,991,981 (Wikidata)"
+  },
+  {
+   "id": "k017",
+   "split": "test",
+   "category": "fact",
+   "goal": "마이크로소프트의 CEO는 누구야?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": "마이크로소프트",
+      "property": "ceo"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": "마이크로소프트",
+        "property": "ceo"
+       }
+      }
+     ],
+     "observation": "마이크로소프트의 최고경영자: 사티아 나델라 (Wikidata)",
+     "answer": "마이크로소프트의 최고경영자: 사티아 나델라 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q2283"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "마이크로소프트의 최고경영자: 사티아 나델라 (Wikidata)"
+  },
+  {
+   "id": "k018",
+   "split": "test",
+   "category": "fact",
+   "goal": "일본의 수도는 어디야?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": "일본",
+      "property": "capital"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": "일본",
+        "property": "capital"
+       }
+      }
+     ],
+     "observation": "일본의 수도: 도쿄도 (Wikidata)",
+     "answer": "일본의 수도: 도쿄도 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q17"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "일본의 수도: 도쿄도 (Wikidata)"
+  },
+  {
+   "id": "k019",
+   "split": "test",
+   "category": "fact",
+   "goal": "에펠탑의 높이는?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": "에펠탑",
+      "property": "height"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": "에펠탑",
+        "property": "height"
+       }
+      }
+     ],
+     "observation": "에펠탑의 높이: 330 m (Wikidata)",
+     "answer": "에펠탑의 높이: 330 m (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q243"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "에펠탑의 높이: 330 m (Wikidata)"
+  },
+  {
+   "id": "k020",
+   "split": "dev",
+   "category": "fact",
+   "goal": "테슬라의 설립자는?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": "테슬라",
+      "property": "founder"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": "테슬라",
+        "property": "founder"
+       }
+      }
+     ],
+     "observation": "테슬라의 설립자: 마틴 에버하드, 마크 타페닝 (Wikidata)",
+     "answer": "테슬라의 설립자: 마틴 에버하드, 마크 타페닝 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q478214"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "테슬라의 설립자: 마틴 에버하드, 마크 타페닝 (Wikidata)"
+  },
+  {
+   "id": "k021",
+   "split": "test",
+   "category": "fact",
+   "goal": "브라질의 통화는?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": "브라질",
+      "property": "currency"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": "브라질",
+        "property": "currency"
+       }
+      }
+     ],
+     "observation": "브라질의 통화: 브라질 헤알 (Wikidata)",
+     "answer": "브라질의 통화: 브라질 헤알 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q155"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "브라질의 통화: 브라질 헤알 (Wikidata)"
+  },
+  {
+   "id": "k022",
+   "split": "test",
+   "category": "fact",
+   "goal": "삼성전자의 설립 연도는?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": "삼성전자",
+      "property": "founded"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": "삼성전자",
+        "property": "founded"
+       }
+      }
+     ],
+     "observation": "삼성전자의 설립·창립 연도: 1969년 (Wikidata)",
+     "answer": "삼성전자의 설립·창립 연도: 1969년 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q20718"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "삼성전자의 설립·창립 연도: 1969년 (Wikidata)"
+  },
+  {
+   "id": "k023",
+   "split": "dev",
+   "category": "fact",
+   "goal": "프랑스의 공용어는?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": "프랑스",
+      "property": "official_language"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": "프랑스",
+        "property": "official_language"
+       }
+      }
+     ],
+     "observation": "프랑스의 공용어: 프랑스어 (Wikidata)",
+     "answer": "프랑스의 공용어: 프랑스어 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q142"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "프랑스의 공용어: 프랑스어 (Wikidata)"
+  },
+  {
+   "id": "k024",
+   "split": "test",
+   "category": "fact",
+   "goal": "호주의 면적은?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": "호주",
+      "property": "area"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": "호주",
+        "property": "area"
+       }
+      }
+     ],
+     "observation": "오스트레일리아의 면적: 7,692,024 km² (Wikidata)",
+     "answer": "오스트레일리아의 면적: 7,692,024 km² (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q408"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "오스트레일리아의 면적: 7,692,024 km² (Wikidata)"
+  },
+  {
+   "id": "k025",
+   "split": "test",
+   "category": "fact",
+   "goal": "애플의 CEO는?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": "애플",
+      "property": "ceo"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": "애플",
+        "property": "ceo"
+       }
+      }
+     ],
+     "observation": "애플의 최고경영자: 존 터너스 (Wikidata)",
+     "answer": "애플의 최고경영자: 존 터너스 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q312"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "애플의 최고경영자: 존 터너스 (Wikidata)"
+  },
+  {
+   "id": "k026",
+   "split": "dev",
+   "category": "calc",
+   "goal": "2,450의 18%는 얼마야?",
+   "steps": [
+    {
+     "action": "calculator",
+     "args": {
+      "expression": [
+       "2,450의 18%",
+       "2,450의 18%는"
+      ]
+     },
+     "alt": [
+      {
+       "action": "calculator",
+       "args": {
+        "expression": [
+         "2,450의 18%",
+         "2,450의 18%는"
+        ]
+       }
+      }
+     ],
+     "observation": "2,450의 18% = 441",
+     "answer": "2,450의 18% = 441"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "2,450의 18% = 441"
+  },
+  {
+   "id": "k027",
+   "split": "test",
+   "category": "calc",
+   "goal": "3 + 4 곱하기 2는?",
+   "steps": [
+    {
+     "action": "calculator",
+     "args": {
+      "expression": "3 + 4 곱하기 2"
+     },
+     "alt": [
+      {
+       "action": "calculator",
+       "args": {
+        "expression": "3 + 4 곱하기 2"
+       }
+      }
+     ],
+     "observation": "3 + 4 곱하기 2 = 11",
+     "answer": "3 + 4 곱하기 2 = 11"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "3 + 4 곱하기 2 = 11"
+  },
+  {
+   "id": "k028",
+   "split": "test",
+   "category": "calc",
+   "goal": "1,250 곱하기 12는?",
+   "steps": [
+    {
+     "action": "calculator",
+     "args": {
+      "expression": "1,250 곱하기 12"
+     },
+     "alt": [
+      {
+       "action": "calculator",
+       "args": {
+        "expression": "1,250 곱하기 12"
+       }
+      }
+     ],
+     "observation": "1,250 곱하기 12 = 15,000",
+     "answer": "1,250 곱하기 12 = 15,000"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "1,250 곱하기 12 = 15,000"
+  },
+  {
+   "id": "k029",
+   "split": "test",
+   "category": "calc",
+   "goal": "2의 10제곱은?",
+   "steps": [
+    {
+     "action": "calculator",
+     "args": {
+      "expression": "2의 10제곱"
+     },
+     "alt": [
+      {
+       "action": "calculator",
+       "args": {
+        "expression": "2의 10제곱"
+       }
+      }
+     ],
+     "observation": "2의 10제곱 = 1,024",
+     "answer": "2의 10제곱 = 1,024"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "2의 10제곱 = 1,024"
+  },
+  {
+   "id": "k030",
+   "split": "dev",
+   "category": "calc",
+   "goal": "7,200 나누기 16은?",
+   "steps": [
+    {
+     "action": "calculator",
+     "args": {
+      "expression": "7,200 나누기 16"
+     },
+     "alt": [
+      {
+       "action": "calculator",
+       "args": {
+        "expression": "7,200 나누기 16"
+       }
+      }
+     ],
+     "observation": "7,200 나누기 16 = 450",
+     "answer": "7,200 나누기 16 = 450"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "7,200 나누기 16 = 450"
+  },
+  {
+   "id": "k031",
+   "split": "test",
+   "category": "calc",
+   "goal": "45 더하기 55 곱하기 3은?",
+   "steps": [
+    {
+     "action": "calculator",
+     "args": {
+      "expression": "45 더하기 55 곱하기 3"
+     },
+     "alt": [
+      {
+       "action": "calculator",
+       "args": {
+        "expression": "45 더하기 55 곱하기 3"
+       }
+      }
+     ],
+     "observation": "45 더하기 55 곱하기 3 = 210",
+     "answer": "45 더하기 55 곱하기 3 = 210"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "45 더하기 55 곱하기 3 = 210"
+  },
+  {
+   "id": "k032",
+   "split": "dev",
+   "category": "units",
+   "goal": "5마일을 킬로미터로 바꿔줘",
+   "steps": [
+    {
+     "action": "unit_convert",
+     "args": {
+      "quantity": "5마일",
+      "to_unit": "km"
+     },
+     "alt": [
+      {
+       "action": "unit_convert",
+       "args": {
+        "quantity": "5마일",
+        "to_unit": "km"
+       }
+      }
+     ],
+     "observation": "5마일 = 8.047 킬로미터",
+     "answer": "5마일 = 8.047 킬로미터"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "5마일 = 8.047 킬로미터"
+  },
+  {
+   "id": "k033",
+   "split": "test",
+   "category": "units",
+   "goal": "70킬로그램은 몇 파운드야?",
+   "steps": [
+    {
+     "action": "unit_convert",
+     "args": {
+      "quantity": "70킬로그램",
+      "to_unit": "lb"
+     },
+     "alt": [
+      {
+       "action": "unit_convert",
+       "args": {
+        "quantity": "70킬로그램",
+        "to_unit": "lb"
+       }
+      }
+     ],
+     "observation": "70킬로그램 = 154.32 파운드",
+     "answer": "70킬로그램 = 154.32 파운드"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "70킬로그램 = 154.32 파운드"
+  },
+  {
+   "id": "k034",
+   "split": "test",
+   "category": "units",
+   "goal": "20도를 화씨로 바꿔줘",
+   "steps": [
+    {
+     "action": "unit_convert",
+     "args": {
+      "quantity": "20도",
+      "to_unit": "F"
+     },
+     "alt": [
+      {
+       "action": "unit_convert",
+       "args": {
+        "quantity": "20도",
+        "to_unit": "F"
+       }
+      }
+     ],
+     "observation": "20도 = 68 도F",
+     "answer": "20도 = 68 도F"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "20도 = 68 도F"
+  },
+  {
+   "id": "k035",
+   "split": "test",
+   "category": "units",
+   "goal": "100미터는 몇 피트야?",
+   "steps": [
+    {
+     "action": "unit_convert",
+     "args": {
+      "quantity": "100미터",
+      "to_unit": "ft"
+     },
+     "alt": [
+      {
+       "action": "unit_convert",
+       "args": {
+        "quantity": "100미터",
+        "to_unit": "ft"
+       }
+      }
+     ],
+     "observation": "100미터 = 328.08 피트",
+     "answer": "100미터 = 328.08 피트"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "100미터 = 328.08 피트"
+  },
+  {
+   "id": "k036",
+   "split": "dev",
+   "category": "units",
+   "goal": "3리터는 몇 갤런이야?",
+   "steps": [
+    {
+     "action": "unit_convert",
+     "args": {
+      "quantity": "3리터",
+      "to_unit": "gal"
+     },
+     "alt": [
+      {
+       "action": "unit_convert",
+       "args": {
+        "quantity": "3리터",
+        "to_unit": "gal"
+       }
+      }
+     ],
+     "observation": "3리터 = 0.793 갤런",
+     "answer": "3리터 = 0.793 갤런"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "3리터 = 0.793 갤런"
+  },
+  {
+   "id": "k037",
+   "split": "test",
+   "category": "units",
+   "goal": "2킬로그램은 몇 파운드야?",
+   "steps": [
+    {
+     "action": "unit_convert",
+     "args": {
+      "quantity": "2킬로그램",
+      "to_unit": "lb"
+     },
+     "alt": [
+      {
+       "action": "unit_convert",
+       "args": {
+        "quantity": "2킬로그램",
+        "to_unit": "lb"
+       }
+      }
+     ],
+     "observation": "2킬로그램 = 4.409 파운드",
+     "answer": "2킬로그램 = 4.409 파운드"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "2킬로그램 = 4.409 파운드"
+  },
+  {
+   "id": "k038",
+   "split": "dev",
+   "category": "date",
+   "goal": "3월 4일부터 3주 후는 무슨 날이야?",
+   "steps": [
+    {
+     "action": "date_math",
+     "args": {
+      "date": "3월 4일",
+      "offset": "3주 후"
+     },
+     "alt": [
+      {
+       "action": "date_math",
+       "args": {
+        "date": "3월 4일",
+        "offset": "3주 후"
+       }
+      }
+     ],
+     "observation": "2026년 3월 4일 (수)에서 3주 후는 2026년 3월 25일 (수)입니다",
+     "answer": "2026년 3월 4일 (수)에서 3주 후는 2026년 3월 25일 (수)입니다"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "2026년 3월 4일 (수)에서 3주 후는 2026년 3월 25일 (수)입니다"
+  },
+  {
+   "id": "k039",
+   "split": "test",
+   "category": "date",
+   "goal": "오늘부터 90일 후는 무슨 날이야?",
+   "steps": [
+    {
+     "action": "date_math",
+     "args": {
+      "date": "오늘",
+      "offset": "90일 후"
+     },
+     "alt": [
+      {
+       "action": "date_math",
+       "args": {
+        "date": "오늘",
+        "offset": "90일 후"
+       }
+      }
+     ],
+     "observation": "2026년 9월 24일 (목)에서 90일 후는 2026년 12월 23일 (수)입니다",
+     "answer": "2026년 9월 24일 (목)에서 90일 후는 2026년 12월 23일 (수)입니다"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "2026년 9월 24일 (목)에서 90일 후는 2026년 12월 23일 (수)입니다"
+  },
+  {
+   "id": "k040",
+   "split": "test",
+   "category": "date",
+   "goal": "2026년 12월 25일에서 10일 전은 무슨 날이야?",
+   "steps": [
+    {
+     "action": "date_math",
+     "args": {
+      "date": "2026년 12월 25일",
+      "offset": "10일 전"
+     },
+     "alt": [
+      {
+       "action": "date_math",
+       "args": {
+        "date": "2026년 12월 25일",
+        "offset": "10일 전"
+       }
+      }
+     ],
+     "observation": "2026년 12월 25일 (금)에서 10일 전는 2026년 12월 15일 (화)입니다",
+     "answer": "2026년 12월 25일 (금)에서 10일 전는 2026년 12월 15일 (화)입니다"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "2026년 12월 25일 (금)에서 10일 전는 2026년 12월 15일 (화)입니다"
+  },
+  {
+   "id": "k041",
+   "split": "test",
+   "category": "date",
+   "goal": "5월 1일부터 2개월 후는?",
+   "steps": [
+    {
+     "action": "date_math",
+     "args": {
+      "date": "5월 1일",
+      "offset": "2개월 후"
+     },
+     "alt": [
+      {
+       "action": "date_math",
+       "args": {
+        "date": "5월 1일",
+        "offset": "2개월 후"
+       }
+      }
+     ],
+     "observation": "2026년 5월 1일 (금)에서 2개월 후는 2026년 7월 1일 (수)입니다",
+     "answer": "2026년 5월 1일 (금)에서 2개월 후는 2026년 7월 1일 (수)입니다"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "2026년 5월 1일 (금)에서 2개월 후는 2026년 7월 1일 (수)입니다"
+  },
+  {
+   "id": "k042",
+   "split": "dev",
+   "category": "date",
+   "goal": "1월 15일부터 30일 후는 무슨 날이야?",
+   "steps": [
+    {
+     "action": "date_math",
+     "args": {
+      "date": "1월 15일",
+      "offset": "30일 후"
+     },
+     "alt": [
+      {
+       "action": "date_math",
+       "args": {
+        "date": "1월 15일",
+        "offset": "30일 후"
+       }
+      }
+     ],
+     "observation": "2026년 1월 15일 (목)에서 30일 후는 2026년 2월 14일 (토)입니다",
+     "answer": "2026년 1월 15일 (목)에서 30일 후는 2026년 2월 14일 (토)입니다"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "2026년 1월 15일 (목)에서 30일 후는 2026년 2월 14일 (토)입니다"
+  },
+  {
+   "id": "k043",
+   "split": "dev",
+   "category": "multihop",
+   "goal": "에펠탑이 있는 도시의 이번 주말 날씨는?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "에펠탑"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "에펠탑"
+       },
+       "alt": [
+        {
+         "action": "wikidata_fact",
+         "args": {
+          "entity": "에펠탑",
+          "property": "country"
+         }
+        }
+       ]
+      }
+     ],
+     "observation": "에펠탑 (프랑스 파리 마르스 광장의 건축물): 에펠탑(프랑스어: Tour Eiffel 투르 에펠[*], 프랑스어 발음: ​[tuʁ ɛfɛl])은 프랑스 파리 마르스 광장에 위치한 격자형 철골 타워이다.",
+     "answer": "에펠탑: 에펠탑(프랑스어: Tour Eiffel 투르 에펠[*], 프랑스어 발음: ​[tuʁ ɛfɛl])은 프랑스 파리 마르스 광장에 위치한 격자형 철골 타워이다.",
+     "source": "https://ko.wikipedia.org/wiki/%EC%97%90%ED%8E%A0%ED%83%91"
+    },
+    {
+     "action": "weather",
+     "args": {
+      "place": "파리",
+      "when": "weekend"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": "파리",
+        "when": "weekend"
+       }
+      }
+     ],
+     "observation": "파리, 일드프랑스, 프랑스 이번 주말(토·일) 예보: 11-07(토): 안개, 4~10°C, 강수 확률 0%; 11-08(일): 안개, 6~8°C, 강수 확률 2%",
+     "answer": "파리, 일드프랑스, 프랑스 이번 주말(토·일) 예보: 11-07(토): 안개, 4~10°C, 강수 확률 0%; 11-08(일): 안개, 6~8°C, 강수 확률 2%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "파리, 일드프랑스, 프랑스 이번 주말(토·일) 예보: 11-07(토): 안개, 4~10°C, 강수 확률 0%; 11-08(일): 안개, 6~8°C, 강수 확률 2%"
+  },
+  {
+   "id": "k044",
+   "split": "test",
+   "category": "multihop",
+   "goal": "교토가 있는 나라의 인구는?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "교토"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "교토"
+       },
+       "alt": [
+        {
+         "action": "wikidata_fact",
+         "args": {
+          "entity": "교토",
+          "property": "country"
+         }
+        }
+       ]
+      }
+     ],
+     "observation": "교토: 교토(일본어: 京都, 한국 한자음: 경도)는 일본의 역사적인 도시다. 미야코(일본어: 都), 교(일본어: 京)라고도 불렸다. 794년 일본의 수도로 세운 헤이안쿄(平安京)에 해당하며 오랫동안 일본의 정치와 문화의 중심지였다.",
+     "answer": "교토: 교토(일본어: 京都, 한국 한자음: 경도)는 일본의 역사적인 도시다. 미야코(일본어: 都), 교(일본어: 京)라고도 불렸다. 794년 일본의 수도로 세운 헤이안쿄(平安京)에 해당하며 오랫동안 일본의 정치와 문화의 중심지였다.",
+     "source": "https://ko.wikipedia.org/wiki/%EA%B5%90%ED%86%A0"
+    },
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": [
+       "일본"
+      ],
+      "property": "population"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": [
+         "일본"
+        ],
+        "property": "population"
+       }
+      }
+     ],
+     "observation": "일본의 인구: 123,802,000 (Wikidata)",
+     "answer": "일본의 인구: 123,802,000 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q17"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "일본의 인구: 123,802,000 (Wikidata)"
+  },
+  {
+   "id": "k045",
+   "split": "test",
+   "category": "multihop",
+   "goal": "아이폰을 만드는 회사의 CEO는 누구야?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "아이폰"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "아이폰"
+       }
+      }
+     ],
+     "observation": "아이폰 (애플의 휴대전화 시리즈): 아이폰(영어: iPhone)은 애플에서 개발 및 판매하고 자사의 모바일 운영체제인 iOS를 실행하는 스마트폰 라인이다. 1세대 아이폰은 당시 애플 CEO이자 공동 창립자인 스티브 잡스가 2007년 1월 9일 맥월드 2007에서 발표했으며, 같은 해 말에 출시되었다. 그 이후 애플은 매년 새로운 아이폰 모델과 iOS 버전을 출시했으며, 가장 최근 모델은 아이폰 16과 16 플러스, 그리고 더 고급 사양의 아이폰 16 프로와 16 프로 맥스, 저가형 아이폰 16e(아이폰 SE를 대체함)이다. 2024년 1월 1일 기준으로 23억 대 이상의 아이폰이 판매되어 애플은 2023년 가장 큰 휴대폰 판매사가 되었다.",
+     "answer": "아이폰: 아이폰(영어: iPhone)은 애플에서 개발 및 판매하고 자사의 모바일 운영체제인 iOS를 실행하는 스마트폰 라인이다. 1세대 아이폰은 당시 애플 CEO이자 공동 창립자인 스티브 잡스가 2007년 1월 9일 맥월드 2007에서 발표했으며, 같은 해 말에 출시되었다. 그 이후 애플은 매년 새로운 아이폰 모델과 iOS 버전을 출시했으며, 가장 최근 모델은 아이폰 16과 16 플러스, 그리고 더 고급 사양의 아이폰 16 프로와 16 프로 맥스, 저가형 아이폰 16e(아이폰 SE를 대체함)이다. 2024년 1월 1일 기준으로 23억 대 이상의 아이폰이 판매되어 애플은 2023년 가장 큰 휴대폰 판매사가 되었다.",
+     "source": "https://ko.wikipedia.org/wiki/%EC%95%84%EC%9D%B4%ED%8F%B0"
+    },
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": [
+       "애플"
+      ],
+      "property": "ceo"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": [
+         "애플"
+        ],
+        "property": "ceo"
+       }
+      }
+     ],
+     "observation": "애플의 최고경영자: 존 터너스 (Wikidata)",
+     "answer": "애플의 최고경영자: 존 터너스 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q312"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "애플의 최고경영자: 존 터너스 (Wikidata)"
+  },
+  {
+   "id": "k046",
+   "split": "dev",
+   "category": "multihop",
+   "goal": "도쿄가 있는 나라의 수도는?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "도쿄"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "도쿄"
+       },
+       "alt": [
+        {
+         "action": "wikidata_fact",
+         "args": {
+          "entity": "도쿄",
+          "property": "country"
+         }
+        }
+       ]
+      }
+     ],
+     "observation": "도쿄 (도쿄 도 동쪽의 23구를 묶어서 이르는 말로, 일본의 수도): 도쿄(東京 , 문화어: 도꾜, 한국 한자음: 동경)는 일본 혼슈 동부에 있는, 메이지 시대 이후 사실상 일본의 수도이자 최대 도시이다. 행정 구역 상으로는 도쿄도에 속하지만, 도쿄도는 다마 지역이나 이즈 제도, 오가사와라 제도의 넓은 지역을 포함하고 있어서 도시라는 뜻의 \"도쿄\"와는 그 의미가 조금 다르다.",
+     "answer": "도쿄: 도쿄(東京 , 문화어: 도꾜, 한국 한자음: 동경)는 일본 혼슈 동부에 있는, 메이지 시대 이후 사실상 일본의 수도이자 최대 도시이다. 행정 구역 상으로는 도쿄도에 속하지만, 도쿄도는 다마 지역이나 이즈 제도, 오가사와라 제도의 넓은 지역을 포함하고 있어서 도시라는 뜻의 \"도쿄\"와는 그 의미가 조금 다르다.",
+     "source": "https://ko.wikipedia.org/wiki/%EB%8F%84%EC%BF%84"
+    },
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": [
+       "일본"
+      ],
+      "property": "capital"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": [
+         "일본"
+        ],
+        "property": "capital"
+       }
+      }
+     ],
+     "observation": "일본의 수도: 도쿄도 (Wikidata)",
+     "answer": "일본의 수도: 도쿄도 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q17"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "일본의 수도: 도쿄도 (Wikidata)"
+  },
+  {
+   "id": "k047",
+   "split": "test",
+   "category": "multihop",
+   "goal": "빌 게이츠가 세운 회사의 CEO는?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "빌 게이츠"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "빌 게이츠"
+       }
+      }
+     ],
+     "observation": "빌 게이츠 (미국인 기업가 및 자선가): 윌리엄 헨리 게이츠 3세(영어: William Henry Gates III, 1955년 10월 28일~)는 미국의 마이크로소프트 설립자이자 기업인이다. 그는 당시 프로그래밍 언어인 베이직 해석프로그램과 알테어용 프로그래밍 언어인 알테어 베이직을 개발했다. 마이크로소프트에서 근무하면서 게이츠는 2014년 5월까지 회장, 최고경영자, 사장, 최고 소프트웨어 설계자 등의 직책을 맡았다.",
+     "answer": "빌 게이츠: 윌리엄 헨리 게이츠 3세(영어: William Henry Gates III, 1955년 10월 28일~)는 미국의 마이크로소프트 설립자이자 기업인이다. 그는 당시 프로그래밍 언어인 베이직 해석프로그램과 알테어용 프로그래밍 언어인 알테어 베이직을 개발했다.",
+     "source": "https://ko.wikipedia.org/wiki/%EB%B9%8C_%EA%B2%8C%EC%9D%B4%EC%B8%A0"
+    },
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": [
+       "마이크로소프트"
+      ],
+      "property": "ceo"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": [
+         "마이크로소프트"
+        ],
+        "property": "ceo"
+       }
+      }
+     ],
+     "observation": "마이크로소프트의 최고경영자: 사티아 나델라 (Wikidata)",
+     "answer": "마이크로소프트의 최고경영자: 사티아 나델라 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q2283"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "마이크로소프트의 최고경영자: 사티아 나델라 (Wikidata)"
+  },
+  {
+   "id": "k048",
+   "split": "test",
+   "category": "multihop",
+   "goal": "만리장성이 있는 나라의 인구는?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "만리장성"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "만리장성"
+       },
+       "alt": [
+        {
+         "action": "wikidata_fact",
+         "args": {
+          "entity": "만리장성",
+          "property": "country"
+         }
+        }
+       ]
+      }
+     ],
+     "observation": "만리장성 (중국의 고대 진나라 때 기존의 성곽을 잇고 부족한 부분은 새롭게 축조하여 만든 거대한 성곽): 만리장성(중국어 정체자: 萬里長城, 간체자: 万里长城, 병음: Wànlĭ Chángchéng 완리창청[*])은 흉노족 등의 유목 민족의 침입을 막기 위해 중국의 고대 진나라(시황제) 때 기존의 성곽을 잇고 부족한 부분은 새롭게 축조하여 만든 거대한 성곽이다. 이후 명나라 시대에 이르기까지 중국의 역대 왕조에서 다양한 목적을 가지고 방벽을 지속적으로 보수하고 개축 및 신축하여 현재까지 남아 있으며 중국을 상징하는 대표적인 유적이자 건축물로 널리 알려져 있다. 1987년에 유네스코의 세계문화유산에 등재되었다.",
+     "answer": "만리장성: 만리장성(중국어 정체자: 萬里長城, 간체자: 万里长城, 병음: Wànlĭ Chángchéng 완리창청[*])은 흉노족 등의 유목 민족의 침입을 막기 위해 중국의 고대 진나라(시황제) 때 기존의 성곽을 잇고 부족한 부분은 새롭게 축조하여 만든 거대한 성곽이다. 이후 명나라 시대에 이르기까지 중국의 역대 왕조에서 다양한 목적을 가지고 방벽을 지속적으로 보수하고 개축 및 신축하여 현재까지 남아 있으며 중국을 상징하는 대표적인 유적이자 건축물로 널리 알려져 있다. 1987년에 유네스코의 세계문화유산에 등재되었다.",
+     "source": "https://ko.wikipedia.org/wiki/%EB%A7%8C%EB%A6%AC%EC%9E%A5%EC%84%B1"
+    },
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": [
+       "중국"
+      ],
+      "property": "population"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": [
+         "중국"
+        ],
+        "property": "population"
+       }
+      }
+     ],
+     "observation": "중화인민공화국의 인구: 1,404,890,000 (Wikidata)",
+     "answer": "중화인민공화국의 인구: 1,404,890,000 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q148"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "중화인민공화국의 인구: 1,404,890,000 (Wikidata)"
+  },
+  {
+   "id": "k049",
+   "split": "dev",
+   "category": "multihop",
+   "goal": "교토가 있는 나라의 통화는?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": "교토"
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": "교토"
+       },
+       "alt": [
+        {
+         "action": "wikidata_fact",
+         "args": {
+          "entity": "교토",
+          "property": "country"
+         }
+        }
+       ]
+      }
+     ],
+     "observation": "교토: 교토(일본어: 京都, 한국 한자음: 경도)는 일본의 역사적인 도시다. 미야코(일본어: 都), 교(일본어: 京)라고도 불렸다. 794년 일본의 수도로 세운 헤이안쿄(平安京)에 해당하며 오랫동안 일본의 정치와 문화의 중심지였다.",
+     "answer": "교토: 교토(일본어: 京都, 한국 한자음: 경도)는 일본의 역사적인 도시다. 미야코(일본어: 都), 교(일본어: 京)라고도 불렸다. 794년 일본의 수도로 세운 헤이안쿄(平安京)에 해당하며 오랫동안 일본의 정치와 문화의 중심지였다.",
+     "source": "https://ko.wikipedia.org/wiki/%EA%B5%90%ED%86%A0"
+    },
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": [
+       "일본"
+      ],
+      "property": "currency"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": [
+         "일본"
+        ],
+        "property": "currency"
+       }
+      }
+     ],
+     "observation": "일본의 통화: 일본 엔 (Wikidata)",
+     "answer": "일본의 통화: 일본 엔 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q17"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "일본의 통화: 일본 엔 (Wikidata)"
+  },
+  {
+   "id": "k050",
+   "split": "dev",
+   "category": "memory",
+   "goal": "내 북클럽 모임은 목요일이라고 기억해줘",
+   "steps": [
+    {
+     "action": "note_save",
+     "args": {
+      "text": [
+       "내 북클럽 모임은 목요일",
+       "북클럽 모임은 목요일"
+      ]
+     },
+     "alt": [
+      {
+       "action": "note_save",
+       "args": {
+        "text": [
+         "내 북클럽 모임은 목요일",
+         "북클럽 모임은 목요일"
+        ]
+       }
+      }
+     ],
+     "observation": "메모를 저장했습니다: \"내 북클럽 모임은 목요일\"",
+     "answer": "저장했습니다: \"내 북클럽 모임은 목요일\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "저장했습니다: \"내 북클럽 모임은 목요일\""
+  },
+  {
+   "id": "k051",
+   "split": "test",
+   "category": "memory",
+   "goal": "메모해줘: 우유 사기",
+   "steps": [
+    {
+     "action": "note_save",
+     "args": {
+      "text": [
+       "우유 사기"
+      ]
+     },
+     "alt": [
+      {
+       "action": "note_save",
+       "args": {
+        "text": [
+         "우유 사기"
+        ]
+       }
+      }
+     ],
+     "observation": "메모를 저장했습니다: \"우유 사기\"",
+     "answer": "저장했습니다: \"우유 사기\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "저장했습니다: \"우유 사기\""
+  },
+  {
+   "id": "k052",
+   "split": "test",
+   "category": "memory",
+   "goal": "별장 와이파이 비밀번호는 냉장고에 붙어 있다고 기억해줘",
+   "steps": [
+    {
+     "action": "note_save",
+     "args": {
+      "text": [
+       "별장 와이파이 비밀번호는 냉장고에 붙어 있다"
+      ]
+     },
+     "alt": [
+      {
+       "action": "note_save",
+       "args": {
+        "text": [
+         "별장 와이파이 비밀번호는 냉장고에 붙어 있다"
+        ]
+       }
+      }
+     ],
+     "observation": "메모를 저장했습니다: \"별장 와이파이 비밀번호는 냉장고에 붙어 있다\"",
+     "answer": "저장했습니다: \"별장 와이파이 비밀번호는 냉장고에 붙어 있다\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "저장했습니다: \"별장 와이파이 비밀번호는 냉장고에 붙어 있다\""
+  },
+  {
+   "id": "k053",
+   "split": "dev",
+   "category": "memory",
+   "goal": "내 북클럽 모임은 언제야?",
+   "steps": [
+    {
+     "action": "note_search",
+     "args": {
+      "query": [
+       "북클럽",
+       "북클럽 모임"
+      ]
+     },
+     "alt": [
+      {
+       "action": "note_search",
+       "args": {
+        "query": [
+         "북클럽",
+         "북클럽 모임"
+        ]
+       }
+      }
+     ],
+     "observation": "\"북클럽\" 관련 메모: \"내 북클럽 모임은 목요일 저녁 7시야\"",
+     "answer": "메모에서 찾았습니다: \"내 북클럽 모임은 목요일 저녁 7시야\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "메모에서 찾았습니다: \"내 북클럽 모임은 목요일 저녁 7시야\""
+  },
+  {
+   "id": "k054",
+   "split": "test",
+   "category": "memory",
+   "goal": "치과 예약이 언제였지?",
+   "steps": [
+    {
+     "action": "note_search",
+     "args": {
+      "query": [
+       "치과",
+       "치과 예약"
+      ]
+     },
+     "alt": [
+      {
+       "action": "note_search",
+       "args": {
+        "query": [
+         "치과",
+         "치과 예약"
+        ]
+       }
+      }
+     ],
+     "observation": "\"치과\" 관련 메모: \"치과 예약은 10월 3일 오전 9시\"",
+     "answer": "메모에서 찾았습니다: \"치과 예약은 10월 3일 오전 9시\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "메모에서 찾았습니다: \"치과 예약은 10월 3일 오전 9시\""
+  },
+  {
+   "id": "k055",
+   "split": "test",
+   "category": "memory",
+   "goal": "헬스장 사물함 번호 알려줘",
+   "steps": [
+    {
+     "action": "note_search",
+     "args": {
+      "query": [
+       "헬스장",
+       "사물함"
+      ]
+     },
+     "alt": [
+      {
+       "action": "note_search",
+       "args": {
+        "query": [
+         "헬스장",
+         "사물함"
+        ]
+       }
+      }
+     ],
+     "observation": "\"헬스장\" 관련 메모: \"헬스장 사물함 번호는 4417\"",
+     "answer": "메모에서 찾았습니다: \"헬스장 사물함 번호는 4417\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "메모에서 찾았습니다: \"헬스장 사물함 번호는 4417\""
+  },
+  {
+   "id": "k056",
+   "split": "test",
+   "category": "rewrite",
+   "goal": "파리에 있는 그 철탑은 얼마나 높아?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": [
+       "에펠탑"
+      ],
+      "property": "height"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": [
+         "에펠탑"
+        ],
+        "property": "height"
+       },
+       "alt": [
+        {
+         "action": "wiki_lookup",
+         "args": {
+          "topic": "에펠탑"
+         }
+        }
+       ]
+      }
+     ],
+     "observation": "에펠탑의 높이: 330 m (Wikidata)",
+     "answer": "에펠탑의 높이: 330 m (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q243"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "에펠탑의 높이: 330 m (Wikidata)"
+  },
+  {
+   "id": "k057",
+   "split": "test",
+   "category": "rewrite",
+   "goal": "아이폰을 만든 회사의 설립자는 누구야?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": [
+       "애플"
+      ],
+      "property": "founder"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": [
+         "애플"
+        ],
+        "property": "founder"
+       }
+      }
+     ],
+     "observation": "애플의 설립자: 스티브 워즈니악, 로널드 웨인, 스티브 잡스 (Wikidata)",
+     "answer": "애플의 설립자: 스티브 워즈니악, 로널드 웨인, 스티브 잡스 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q312"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "애플의 설립자: 스티브 워즈니악, 로널드 웨인, 스티브 잡스 (Wikidata)"
+  },
+  {
+   "id": "k058",
+   "split": "dev",
+   "category": "rewrite",
+   "goal": "세계에서 가장 긴 강은 어디야?",
+   "steps": [
+    {
+     "action": "wiki_lookup",
+     "args": {
+      "topic": [
+       "나일강",
+       "나일"
+      ]
+     },
+     "alt": [
+      {
+       "action": "wiki_lookup",
+       "args": {
+        "topic": [
+         "나일강",
+         "나일"
+        ]
+       }
+      }
+     ],
+     "observation": "나일강 (아프리카 북동부의 주요 강): 나일강(영어: Nile, 아랍어: النيل an-nīl[*])은 아프리카 대륙의 동북부를 흐르는 강이다. 총 길이는 6,650km(6,695km)이며 세계에서 가장 긴 강이다.",
+     "answer": "나일강: 나일강(영어: Nile, 아랍어: النيل an-nīl[*])은 아프리카 대륙의 동북부를 흐르는 강이다. 총 길이는 6,650km(6,695km)이며 세계에서 가장 긴 강이다.",
+     "source": "https://ko.wikipedia.org/wiki/%EB%82%98%EC%9D%BC%EA%B0%95"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "나일강: 나일강(영어: Nile, 아랍어: النيل an-nīl[*])은 아프리카 대륙의 동북부를 흐르는 강이다. 총 길이는 6,650km(6,695km)이며 세계에서 가장 긴 강이다."
+  },
+  {
+   "id": "k059",
+   "split": "test",
+   "category": "rewrite",
+   "goal": "그 전기차 회사의 CEO는 누구야?",
+   "steps": [
+    {
+     "action": "wikidata_fact",
+     "args": {
+      "entity": [
+       "테슬라"
+      ],
+      "property": "ceo"
+     },
+     "alt": [
+      {
+       "action": "wikidata_fact",
+       "args": {
+        "entity": [
+         "테슬라"
+        ],
+        "property": "ceo"
+       }
+      }
+     ],
+     "observation": "테슬라의 최고경영자: 일론 머스크 (Wikidata)",
+     "answer": "테슬라의 최고경영자: 일론 머스크 (Wikidata)",
+     "source": "https://www.wikidata.org/wiki/Q478214"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "테슬라의 최고경영자: 일론 머스크 (Wikidata)"
+  },
+  {
+   "id": "k060",
+   "split": "test",
+   "category": "ambiguous",
+   "goal": "날씨 알려줘",
+   "steps": [
+    {
+     "action": "ask_user",
+     "args": {},
+     "alt": [
+      {
+       "action": "ask_user",
+       "args": {}
+      }
+     ],
+     "observation": "사용자가 답했습니다: \"서울\"",
+     "answer": "말씀하신 내용: \"서울\""
+    },
+    {
+     "action": "weather",
+     "args": {
+      "place": [
+       "서울"
+      ],
+      "when": "today"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": [
+         "서울"
+        ],
+        "when": "today"
+       }
+      }
+     ],
+     "observation": "서울특별시, 대한민국 오늘 예보: 11-05(목): 약한 이슬비, 9~16°C, 강수 확률 90%",
+     "answer": "서울특별시, 대한민국 오늘 예보: 11-05(목): 약한 이슬비, 9~16°C, 강수 확률 90%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "서울특별시, 대한민국 오늘 예보: 11-05(목): 약한 이슬비, 9~16°C, 강수 확률 90%"
+  },
+  {
+   "id": "k061",
+   "split": "test",
+   "category": "ambiguous",
+   "goal": "거기 내일 날씨 어때?",
+   "steps": [
+    {
+     "action": "ask_user",
+     "args": {},
+     "alt": [
+      {
+       "action": "ask_user",
+       "args": {}
+      }
+     ],
+     "observation": "사용자가 답했습니다: \"부산\"",
+     "answer": "말씀하신 내용: \"부산\""
+    },
+    {
+     "action": "weather",
+     "args": {
+      "place": [
+       "부산"
+      ],
+      "when": "tomorrow"
+     },
+     "alt": [
+      {
+       "action": "weather",
+       "args": {
+        "place": [
+         "부산"
+        ],
+        "when": "tomorrow"
+       }
+      }
+     ],
+     "observation": "부산, 충청북도, 대한민국 내일 예보: 11-06(금): 구름 조금, -2~7°C, 강수 확률 35%",
+     "answer": "부산, 충청북도, 대한민국 내일 예보: 11-06(금): 구름 조금, -2~7°C, 강수 확률 35%",
+     "source": "https://open-meteo.com/"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "부산, 충청북도, 대한민국 내일 예보: 11-06(금): 구름 조금, -2~7°C, 강수 확률 35%"
+  },
+  {
+   "id": "k062",
+   "split": "dev",
+   "category": "ambiguous",
+   "goal": "메모 찾아줘",
+   "steps": [
+    {
+     "action": "ask_user",
+     "args": {},
+     "alt": [
+      {
+       "action": "ask_user",
+       "args": {}
+      }
+     ],
+     "observation": "사용자가 답했습니다: \"세차 쿠폰\"",
+     "answer": "말씀하신 내용: \"세차 쿠폰\""
+    },
+    {
+     "action": "note_search",
+     "args": {
+      "query": [
+       "세차",
+       "세차 쿠폰"
+      ]
+     },
+     "alt": [
+      {
+       "action": "note_search",
+       "args": {
+        "query": [
+         "세차",
+         "세차 쿠폰"
+        ]
+       }
+      }
+     ],
+     "observation": "\"세차\" 관련 메모: \"세차 쿠폰은 이번 달 말에 만료돼\"",
+     "answer": "메모에서 찾았습니다: \"세차 쿠폰은 이번 달 말에 만료돼\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "메모에서 찾았습니다: \"세차 쿠폰은 이번 달 말에 만료돼\""
+  },
+  {
+   "id": "k063",
+   "split": "test",
+   "category": "ambiguous",
+   "goal": "그 사람 생일 알려줘",
+   "steps": [
+    {
+     "action": "ask_user",
+     "args": {},
+     "alt": [
+      {
+       "action": "ask_user",
+       "args": {}
+      }
+     ],
+     "observation": "사용자가 답했습니다: \"사라\"",
+     "answer": "말씀하신 내용: \"사라\""
+    },
+    {
+     "action": "note_search",
+     "args": {
+      "query": [
+       "사라",
+       "사라 생일"
+      ]
+     },
+     "alt": [
+      {
+       "action": "note_search",
+       "args": {
+        "query": [
+         "사라",
+         "사라 생일"
+        ]
+       }
+      }
+     ],
+     "observation": "\"사라\" 관련 메모: \"사라 생일은 6월 12일\"",
+     "answer": "메모에서 찾았습니다: \"사라 생일은 6월 12일\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "메모에서 찾았습니다: \"사라 생일은 6월 12일\""
+  },
+  {
+   "id": "k064",
+   "split": "test",
+   "category": "risky",
+   "goal": "치과 관련 메모를 모두 지워줘",
+   "steps": [
+    {
+     "action": "note_delete",
+     "args": {
+      "query": [
+       "치과",
+       "치과 예약"
+      ]
+     },
+     "alt": [
+      {
+       "action": "note_delete",
+       "args": {
+        "query": [
+         "치과",
+         "치과 예약"
+        ]
+       }
+      }
+     ],
+     "observation": "메모 1개를 지웠습니다: \"치과 예약은 10월 3일 오전 9시\"",
+     "answer": "메모 1개를 지웠습니다: \"치과 예약은 10월 3일 오전 9시\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "메모 1개를 지웠습니다: \"치과 예약은 10월 3일 오전 9시\""
+  },
+  {
+   "id": "k065",
+   "split": "test",
+   "category": "risky",
+   "goal": "내 메모를 전부 지워줘",
+   "steps": [
+    {
+     "action": "note_delete",
+     "args": {
+      "query": "모든 메모"
+     },
+     "alt": [
+      {
+       "action": "note_delete",
+       "args": {
+        "query": "모든 메모"
+       }
+      }
+     ],
+     "observation": "메모 7개를 지웠습니다: \"내 북클럽 모임은 목요일 저녁 7시야\"; \"치과 예약은 10월 3일 오전 9시\"; \"별장 와이파이 비밀번호는 냉장고에 붙어 있어\"; \"사라 생일은 6월 12일\"; \"헬스장 사물함 번호는 4417\"; \"세차 쿠폰은 이번 달 말에 만료돼\"; \"회사 주차 자리는 B-14\"",
+     "answer": "메모 7개를 지웠습니다: \"내 북클럽 모임은 목요일 저녁 7시야\"; \"치과 예약은 10월 3일 오전 9시\"; \"별장 와이파이 비밀번호는 냉장고에 붙어 있어\"; \"사라 생일은 6월 12일\"; \"헬스장 사물함 번호는 4417\"; \"세차 쿠폰은 이번 달 말에 만료돼\"; \"회사 주차 자리는 B-14\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "메모 7개를 지웠습니다: \"내 북클럽 모임은 목요일 저녁 7시야\"; \"치과 예약은 10월 3일 오전 9시\"; \"별장 와이파이 비밀번호는 냉장고에 붙어 있어\"; \"사라 생일은 6월 12일\"; \"헬스장 사물함 번호는 4417\"; \"세차 쿠폰은 이번 달 말에 만료돼\"; \"회사 주차 자리는 B-14\""
+  },
+  {
+   "id": "k066",
+   "split": "dev",
+   "category": "risky",
+   "goal": "프리야에게 늦는다고 메시지 보내줘",
+   "steps": [
+    {
+     "action": "send_message",
+     "args": {
+      "to": "프리야",
+      "text": [
+       "늦는다"
+      ]
+     },
+     "alt": [
+      {
+       "action": "send_message",
+       "args": {
+        "to": "프리야",
+        "text": [
+         "늦는다"
+        ]
+       }
+      }
+     ],
+     "observation": "프리야에게 보낼 메시지: \"늦는다\" (데모이므로 실제로 전송되지 않았습니다)",
+     "answer": "프리야에게 보낼 메시지: \"늦는다\" (데모이므로 실제로 전송되지 않았습니다)"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "프리야에게 보낼 메시지: \"늦는다\" (데모이므로 실제로 전송되지 않았습니다)"
+  },
+  {
+   "id": "k067",
+   "split": "test",
+   "category": "risky",
+   "goal": "사라에게 생일 축하한다고 전해줘",
+   "steps": [
+    {
+     "action": "send_message",
+     "args": {
+      "to": "사라",
+      "text": [
+       "생일 축하한다"
+      ]
+     },
+     "alt": [
+      {
+       "action": "send_message",
+       "args": {
+        "to": "사라",
+        "text": [
+         "생일 축하한다"
+        ]
+       }
+      }
+     ],
+     "observation": "사라에게 보낼 메시지: \"생일 축하한다\" (데모이므로 실제로 전송되지 않았습니다)",
+     "answer": "사라에게 보낼 메시지: \"생일 축하한다\" (데모이므로 실제로 전송되지 않았습니다)"
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "사라에게 보낼 메시지: \"생일 축하한다\" (데모이므로 실제로 전송되지 않았습니다)"
+  },
+  {
+   "id": "k068",
+   "split": "test",
+   "category": "risky",
+   "goal": "회사 주차 자리 메모를 지워줘",
+   "steps": [
+    {
+     "action": "note_delete",
+     "args": {
+      "query": [
+       "주차",
+       "회사 주차"
+      ]
+     },
+     "alt": [
+      {
+       "action": "note_delete",
+       "args": {
+        "query": [
+         "주차",
+         "회사 주차"
+        ]
+       }
+      }
+     ],
+     "observation": "메모 1개를 지웠습니다: \"회사 주차 자리는 B-14\"",
+     "answer": "메모 1개를 지웠습니다: \"회사 주차 자리는 B-14\""
+    },
+    {
+     "action": "FINISH",
+     "args": {},
+     "observation": ""
+    }
+   ],
+   "answer": "메모 1개를 지웠습니다: \"회사 주차 자리는 B-14\""
+  }
+ ]
+}

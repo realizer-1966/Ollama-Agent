@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ollama Agent</title>
+<meta name="description" content="브라우저 탭 안에서만 도는 AI 에이전트: 322M 다국어 Laya 인코더(System 1)가 일상적인 결정을 하고, Laya가 확신하지 못할 때만 브라우저 속 작은 LLM(System 2)이 나서며, 무언가를 바꾸는 단계는 반드시 사용자의 승인을 받습니다. 아무것도 페이지 밖으로 나가지 않습니다.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232a5bd7'/%3E%3Cpath d='M16 6l8 10-8 10-8-10z' fill='none' stroke='white' stroke-width='2.6' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='16' r='2.6' fill='white'/%3E%3C/svg%3E">
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#7c3aed">
+<link rel="apple-touch-icon" href="./icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="./styles.css">
+<script src="./vendor/cytoscape.min.js"></script>
+<script src="./vendor/cytoscape-dagre.min.js"></script>
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><rect width="32" height="32" rx="7" class="logo-bg"/><path d="M16 6l8 10-8 10-8-10z" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/><circle cx="16" cy="16" r="2.6" fill="#fff"/></svg>
+    <div>
+      <h1>Ollama Agent</h1>
+    </div>
+  </div>
+  <div class="topright">
+    <nav class="nav" aria-label="페이지"><a href="./index.html" aria-current="page">에이전트</a><a href="./eval.html">평가</a></nav>
+    <div class="modelpill" id="modelPill" role="status"><span class="dot"></span><span id="modelPillText">시작하는 중…</span></div>
+  </div>
+</header>
+
+<section class="card modelcard" id="modelCard">
+  <div class="modelgrid">
+    <div>
+      <h3><span class="sys s1">System 1</span> Ollama 결정 모델 (CLEF, 타입화된 결정)</h3>
+    </div>
+    <div>
+      <h3><span class="sys s2">System 2</span> Ollama 생성 모델 (/v1/chat/completions)</h3>
+      <p class="hint" id="s2Note"></p>
+    </div>
+  </div>
+  <div class="progress" id="progress" hidden><div id="progressBar"></div></div>
+  <p class="status" id="status">System 1: <a id="modelLink" target="_blank" rel="noopener"></a> — 페이지를 열면 Ollama(http://localhost:11434)의 clef(System 1)·glm(System 2)에 자동으로 연결합니다. 서버가 off면 새로 고침으로 다시 시도하세요.</p>
+  <div class="badges" id="badges"></div>
+</section>
+
+<section class="banner">
+  <div class="card">
+    <h2>단계마다 누가 결정했나 <span class="hint" id="bannerScope" style="font-weight:400"></span></h2>
+    <div class="splitrows" id="splitRows"></div>
+    <div class="bannerfoot" id="bannerFoot"></div>
+  </div>
+  <div class="card evalbox" id="evalBox">
+    <h2>라벨된 과제 세트에서 <span class="hint" style="font-weight:400">(<a href="./eval.html">평가</a>, 테스트 분할, 아래 게이트 설정 기준)</span></h2>
+    <div id="evalSummary" class="hint">아직 녹음된 평가가 없습니다.</div>
+  </div>
+</section>
+
+<div class="layout">
+  <aside class="side">
+    <section class="card">
+      <div class="field">
+        <label for="goal">목표</label>
+        <textarea id="goal" rows="3" spellcheck="false" placeholder="에펠탑이 있는 도시의 이번 주말 날씨는?"></textarea>
+      </div>
+      <label>예시 목표 <span class="hint" id="presetHint"></span></label>
+      <div class="examples" id="presets"></div>
+      <div class="btnrow">
+        <button id="runBtn" class="primary">에이전트 실행</button>
+        <button id="stopBtn" disabled>멈추기</button>
+      </div>
+      <p class="hint" id="runHint"></p>
+    </section>
+
+    <section class="card">
+      <h2>게이트</h2>
+      <div class="field">
+        <label for="tauAction">Laya가 행동을 스스로 실행할 때 필요한 점수: <b id="tauActionVal"></b></label>
+        <input type="range" id="tauAction" min="0" max="1" step="0.01">
+      </div>
+      <div class="field">
+        <label for="tauArg">모든 인자에서 필요한 점수: <b id="tauArgVal"></b></label>
+        <input type="range" id="tauArg" min="0" max="1" step="0.01">
+      </div>
+      <div class="field"><label for="tauStop">묻지 않고 멈추기 위해 필요한 p(목표 달성): <b id="tauStopVal"></b></label><input type="range" id="tauStop" min="0.5" max="1" step="0.01"></div>
+      <p class="hint">어느 기준이든 아래로 떨어지면 그 단계는 <b>보류</b>됩니다: System 2가 결정하고, System 2가 없으면 사용자가 결정합니다. 슬라이더를 움직이면 모델 호출 없이 현재 실행과 과제 점수가 즉시 다시 계산됩니다.</p>
+      <details>
+        <summary>게이트 추가 설정</summary>
+        <div class="field" style="margin-top:8px"><label for="metric">점수</label><select id="metric"></select></div>
+        <div class="toggles">
+          <label class="check"><input type="checkbox" id="useGoalMet"> Laya가 목표를 달성했다고 하면(p ≥ 0.5) 멈춘다. 다음 행동과 어긋나면 보류한다</label>
+          <label class="check"><input type="checkbox" id="useRisk"> Laya가 목표를 위험하게 읽으면(p ≥ 0.2, 개발 분할에서 고름) 읽기 전용 단계도 보류한다</label>
+        </div>
+        <div class="field"><label for="maxSteps">단계 예산</label><select id="maxSteps"><option>4</option><option>6</option><option selected>8</option><option>12</option></select></div>
+        <p class="hint">무언가를 바꾸는 도구(메모 저장·삭제, 메시지 전송)는 누가 골랐든 항상 먼저 사용자에게 묻습니다.</p>
+      </details>
+      <details>
+        <summary>System 2 설정</summary>
+        <div class="toggles" style="margin-top:8px">
+          <label class="check"><input type="checkbox" id="autoS2"> 첫 보류 단계에서 System 2를 불러온다 (기본값 꺼짐: 과제 세트에서는 Laya + 사용자가 Laya + System 2보다 나음)</label>
+          <label class="check"><input type="checkbox" id="shadow"> 그림자 모드: System 1이 자동 처리한 단계의 10%를 System 2에도 물어 일치 여부를 기록한다</label>
+          <label class="check"><input type="checkbox" id="rewrite"> System 2가 최종 답을 문장으로 다시 쓰게 한다</label>
+        </div>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>에이전트 메모리 <span class="hint" id="noteCount" style="font-weight:400"></span></h2>
+      <p class="hint">메모는 이 브라우저의 IndexedDB에 저장됩니다. 에이전트는 메모 도구로 저장·검색·삭제합니다.</p>
+      <ul class="notes" id="notesList"></ul>
+      <div class="btnrow"><button id="seedNotes" class="ghost">예시 메모 넣기</button><button id="clearNotes" class="ghost">메모 지우기</button></div>
+    </section>
+  </aside>
+
+  <main class="main">
+    <section class="card" id="answerCard" hidden><div id="answer"></div></section>
+    <section class="card stage">
+      <div class="tabs" role="tablist">
+        <button role="tab" aria-selected="true" data-tab="trace">추적 그래프</button>
+        <button role="tab" aria-selected="false" data-tab="steps">단계 목록</button>
+        <button role="tab" aria-selected="false" data-tab="session">세션 그래프</button>
+        <button role="tab" aria-selected="false" data-tab="export">내보내기</button>
+      </div>
+      <div class="panel" data-panel="trace">
+        <div class="toolbar">
+          <div class="legend">
+            <span><i class="lg s1"></i>System 1 결정</span><span><i class="lg s2"></i>System 2 결정</span><span><i class="lg hu"></i>사용자 결정</span>
+            <span><i class="lg esc"></i>보류(에스컬레이션)</span><span><i class="lg guard"></i>승인 필요</span><span><i class="lg task"></i>도구 호출</span>
+          </div>
+          <div class="tools"><button id="fitBtn" class="ghost">맞추기</button></div>
+        </div>
+        <div class="split">
+          <div class="canvas"><div class="cyhost" id="traceCanvas"></div><div class="empty" id="traceEmpty"><span>예시 목표를 고르거나 직접 쓰고 <b>에이전트 실행</b>을 누르세요.</span></div></div>
+          <div class="inspector" id="inspector"><p class="hint">노드를 클릭하세요: Laya가 답한 타입화된 질문, 선택지마다의 확률, 게이트의 이유, 보류된 단계라면 System 2의 프롬프트와 응답이 보입니다. 점선 마름모는 Laya가 고려한 다음 행동이며, 클릭하면 그 지점부터 다시 실행합니다.</p></div>
+        </div>
+      </div>
+      <div class="panel" data-panel="steps" hidden><ol class="steplist" id="stepList"></ol></div>
+      <div class="panel" data-panel="session" hidden>
+        <p class="caption" style="margin-bottom:8px">이 탭의 모든 실행(녹음 재생 포함)을 합친 그래프입니다. 간선은 전이 횟수이고, 노란 테두리는 System 2나 사용자에게 자주 보류된 도구입니다.</p>
+        <div class="canvas"><div class="cyhost" id="sessionCanvas"></div><div class="empty" id="sessionEmpty">아직 실행이 없습니다.</div></div>
+      </div>
+      <div class="panel" data-panel="export" hidden>
+        <p class="hint">현재 실행을 JSON(Laya의 답이 담긴 모든 단계) 또는 RDF Turtle(<code>la:Run</code>과 <code>la:Step</code>, 단계마다 <code>la:decidedBy</code>)로 내려받아 다른 곳에서 SPARQL로 질의할 수 있습니다.</p>
+        <div class="btnrow"><button id="expJson">JSON 내려받기</button><button id="expTtl">Turtle 내려받기</button><button id="expAll">이 탭의 모든 실행 (JSON)</button></div>
+        <pre id="expPreview" style="white-space:pre-wrap;margin-top:10px"></pre>
+      </div>
+    </section>
+  </main>
+</div>
+
+<dialog id="decideDlg">
+  <form method="dialog" id="decideForm">
+    <h3>Laya가 확신하지 못합니다: 이 단계는 직접 고르세요</h3>
+    <ul class="why" id="decideWhy"></ul>
+    <div class="field"><label for="decAction">다음 행동 (Laya의 상위 후보가 먼저)</label><select id="decAction"></select></div>
+    <div id="decArgs"></div>
+    <div class="btnrow end"><button value="stop" formnovalidate>실행 멈추기</button><button value="ok" class="primary">이 단계 실행</button></div>
+  </form>
+</dialog>
+<dialog id="confirmDlg">
+  <form method="dialog">
+    <h3>이 단계를 허용할까요?</h3>
+    <div class="guardtxt" id="confirmTxt"></div>
+    <p class="hint" id="confirmWho"></p>
+    <div class="btnrow end"><button value="no">거부</button><button value="yes" class="primary">허용</button></div>
+  </form>
+</dialog>
+<dialog id="askDlg">
+  <form method="dialog">
+    <h3>에이전트가 묻습니다</h3>
+    <p id="askQ"></p>
+    <div class="field"><input type="text" id="askA" autocomplete="off"></div>
+    <div class="btnrow end"><button value="skip" formnovalidate>건너뛰기</button><button value="ok" class="primary">답하기</button></div>
+  </form>
+</dialog>
+
+<footer class="foot">
+  layaAgent 한국어판(Ollama판) · Apache-2.0 · 원판 설계: vishalmysore/layaAgent와 realizer-1966/layaAgent-ko에서 파생. System 1: <a href="http://ollama.com/library/clef" target="_blank" rel="noopener">Ollama CLEF 결정 모델 (/v1/systemone)</a>, System 2: <a href="http://ollama.com" target="_blank" rel="noopener">Ollama 생성 모델 (/v1/chat/completions)</a>. 도구는 브라우저에서 한국어 위키백과·Wikidata·Open-Meteo를 직접 호출하며, 메시지는 실제로 전송되지 않습니다. <a href="./README-ko.md">한국어 안내</a> · <a href="./article-ko.md">설계 이야기</a> · <a href="./NOTICE.txt">고지</a>.
+</footer>
+<script>
+if ("serviceWorker" in navigator) window.addEventListener("load", () => navigator.serviceWorker.register("./sw.js").catch(() => {}));
+</script>
+<script type="module" src="./main.js"></script>
+</body>
+</html>
